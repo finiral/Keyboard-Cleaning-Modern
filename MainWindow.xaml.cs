@@ -20,26 +20,30 @@ public partial class MainWindow : FluentWindow
         InitializeComponent();
         this.refreshStats = true;
         this.ExtendsContentIntoTitleBar = true;
-        this.WindowBackdropType = WindowBackdropType.Tabbed;
+        this.WindowBackdropType = WindowBackdropType.Mica;
         this.Closing += form_close;
         this.Loaded += AppUi_Load;
     }
 
     private void AppUi_Load(object sender, EventArgs e)
     {
+        Thread thread = new Thread(new ThreadStart(PrepareCounter));
+        thread.Start();
+    }
+    void PrepareCounter()
+    {
         cpuCounter = new PerformanceCounter("Processor Information", "% Processor Utility", "_Total");
         ramCounter = new PerformanceCounter("Memory", "Available MBytes");
         // Initialize timer to update stats every second
         timer = new System.Threading.Timer(UpdateStats, null, 0, 1000);
-    }
 
+    }
     private void ToggleSwitch_Checked(object sender, System.Windows.RoutedEventArgs e)
     {
         Debug.WriteLine("Activated !");
         if (sender is ToggleSwitch toggleSwitch)
         {
             KeyboardHook.SetHook();
-            toggleSwitch.Content = "Stop Cleaning";
         }
     }
 
@@ -49,7 +53,6 @@ public partial class MainWindow : FluentWindow
         if (sender is ToggleSwitch toggleSwitch)
         {
             KeyboardHook.Unhook();
-            toggleSwitch.Content = "Start Cleaning";
         }
 
     }
@@ -64,9 +67,10 @@ public partial class MainWindow : FluentWindow
         return (int)cpuCounter.NextValue();
     }
 
-    public int getAvailableRAM()
+    public double getAvailableRAM()
     {
-        return (int)ramCounter.NextValue();
+        double availableRAM = (double)ramCounter.NextValue() / 1024;
+        return Math.Round(availableRAM, 1);
     }
 
     private void UpdateStats(object state)
@@ -83,7 +87,7 @@ public partial class MainWindow : FluentWindow
             this.Dispatcher.Invoke(new Action(() =>
             {
                 int cpu_usage = getCurrentCpuUsage();
-                int ram_usage = getAvailableRAM();  
+                double ram_left = getAvailableRAM();  
                 Debug.WriteLine("cpu " + cpu_usage);
                 if (this.FindName("cpu") is Label cpu && this.FindName("cpu_bar") is ProgressRing cpu_bar)
                 {
@@ -92,7 +96,8 @@ public partial class MainWindow : FluentWindow
                 }
                 if (this.FindName("ram") is Label ram && this.FindName("ram_bar") is ProgressRing ram_bar)
                 {
-                    ram.Content = ram_usage +" MB";
+                    double ram_usage = (double)totalRam - ram_left;
+                    ram.Content = ram_usage +" GB";
                     ram_bar.Progress=(ram_usage/(double)totalRam)*100;
                 }
             }));
@@ -120,6 +125,6 @@ public partial class MainWindow : FluentWindow
             Console.WriteLine("Error: " + ex.Message);
         }
 
-        return totalRAM / (1024); // Convert bytes to megabytes
+        return totalRAM / (1024*1024); // Convert bytes to megabytes
     }
 }

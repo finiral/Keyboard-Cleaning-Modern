@@ -5,12 +5,13 @@
         ResizeMode="NoResize"
         Title="Keyboard-Cleaning" Height="400" Width="500">
     <Grid>
-        <ui:TitleBar ShowMaximize="False" Title="Keyboard-Cleaning App"></ui:TitleBar>
-        <Label Margin="106,97,320,258" >CPU Usage</Label>
-        <Label Margin="337,98,0,257" HorizontalAlignment="Left">RAM Left</Label>
-        <Label Margin="346,220,0,135" HorizontalAlignment="Left" Name="ram">4000 MB</Label>
-        <Label Margin="130,220,0,135" HorizontalAlignment="Left" Name="cpu">20%</Label>
-        <ui:ProgressRing Margin="106,126,334,198" Progress="80" Name="cpu_bar" RenderTransformOrigin="0.5,0.5">
+
+        <ui:TitleBar ShowMaximize="False" Title="Keyboard-Cleaning App" Icon="logo_keyboard" ></ui:TitleBar>
+        <Label Margin="100,102,326,253" >CPU Usage</Label>
+        <Label Margin="323,103,0,252" HorizontalAlignment="Left">RAM Usage</Label>
+        <Label Margin="338,228,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Name="ram">0 MB</Label>
+        <Label Margin="124,225,0,130" HorizontalAlignment="Left" Name="cpu" VerticalAlignment="Center">0%</Label>
+        <ui:ProgressRing Margin="100,131,340,193" Progress="0" Name="cpu_bar" RenderTransformOrigin="0.5,0.5">
             <ui:ProgressRing.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -20,7 +21,7 @@
                 </TransformGroup>
             </ui:ProgressRing.RenderTransform>
         </ui:ProgressRing>
-        <ui:ProgressRing Margin="335,127,105,197" Progress="80" Name="ram_bar" RenderTransformOrigin="0.5,0.5">
+        <ui:ProgressRing Margin="329,132,111,192" Progress="0" Name="ram_bar" RenderTransformOrigin="0.5,0.5">
             <ui:ProgressRing.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -31,10 +32,10 @@
             </ui:ProgressRing.RenderTransform>
         </ui:ProgressRing>
 
-        <ui:ToggleSwitch HorizontalAlignment="Center" 
+        <ui:ToggleSwitch 
                          ToggleButton.Checked="ToggleSwitch_Checked"
-                         ToggleButton.Unchecked="ToggleSwitch_Unchecked" Margin="0,285,0,0" VerticalAlignment="Top"
-                         >Start Cleaning</ui:ToggleSwitch>
+                         ToggleButton.Unchecked="ToggleSwitch_Unchecked" Margin="0,285,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"
+                         >Keyboard Cleaning</ui:ToggleSwitch>
 
     </Grid>
 </ui:FluentWindow>
