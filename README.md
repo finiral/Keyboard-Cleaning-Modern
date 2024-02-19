@@ -2,6 +2,6 @@
 
 ## Features :
 
--Toggle Cleaning mode : disables/enables your keyboard.
+-Toggle Keyboard Cleaning mode : disables/enables your keyboard.
 
--PC's CPU usage and RAM left : with two circular bar to represent them.
+-PC's CPU usage and RAM usage , with two circular bar to represent them.
