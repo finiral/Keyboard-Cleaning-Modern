@@ -67,9 +67,9 @@ public partial class MainWindow : FluentWindow
         return (int)cpuCounter.NextValue();
     }
 
-    public double getAvailableRAM()
+    public decimal getAvailableRAM()
     {
-        double availableRAM = (double)ramCounter.NextValue() / 1024;
+        decimal availableRAM = (decimal)ramCounter.NextValue() / 1024;
         return Math.Round(availableRAM, 1);
     }
 
@@ -87,7 +87,7 @@ public partial class MainWindow : FluentWindow
             this.Dispatcher.Invoke(new Action(() =>
             {
                 int cpu_usage = getCurrentCpuUsage();
-                double ram_left = getAvailableRAM();  
+                decimal ram_left = getAvailableRAM();  
                 Debug.WriteLine("cpu " + cpu_usage);
                 if (this.FindName("cpu") is Label cpu && this.FindName("cpu_bar") is ProgressRing cpu_bar)
                 {
@@ -96,9 +96,9 @@ public partial class MainWindow : FluentWindow
                 }
                 if (this.FindName("ram") is Label ram && this.FindName("ram_bar") is ProgressRing ram_bar)
                 {
-                    double ram_usage = Math.Round((double)totalRam,1) - ram_left;
+                    decimal ram_usage = Math.Round((decimal)totalRam,1) - ram_left;
                     ram.Content = ram_usage +" GB";
-                    ram_bar.Progress=(ram_usage/(double)totalRam)*100;
+                    ram_bar.Progress=(double)Math.Round((ram_usage/(decimal)totalRam)*100,1);
                 }
             }));
         }
