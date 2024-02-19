@@ -10,9 +10,26 @@
         <Label Margin="337,98,0,257" HorizontalAlignment="Left">RAM Left</Label>
         <Label Margin="346,220,0,135" HorizontalAlignment="Left" Name="ram">4000 MB</Label>
         <Label Margin="130,220,0,135" HorizontalAlignment="Left" Name="cpu">20%</Label>
-
-        <ui:ProgressRing Margin="113,132,327,192" Progress="80"></ui:ProgressRing>
-        <ui:ProgressRing Margin="335,132,105,192" Progress="80"></ui:ProgressRing>
+        <ui:ProgressRing Margin="106,126,334,198" Progress="80" Name="cpu_bar" RenderTransformOrigin="0.5,0.5">
+            <ui:ProgressRing.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ui:ProgressRing.RenderTransform>
+        </ui:ProgressRing>
+        <ui:ProgressRing Margin="335,127,105,197" Progress="80" Name="ram_bar" RenderTransformOrigin="0.5,0.5">
+            <ui:ProgressRing.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ui:ProgressRing.RenderTransform>
+        </ui:ProgressRing>
 
         <ui:ToggleSwitch HorizontalAlignment="Center" 
                          ToggleButton.Checked="ToggleSwitch_Checked"

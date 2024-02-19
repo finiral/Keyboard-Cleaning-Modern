@@ -6,10 +6,22 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>logo_keyboard.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="logo_keyboard.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Management" Version="8.0.0" />
     <PackageReference Include="WPF-UI" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic">
+      <HintPath>..\..\..\.nuget\packages\microsoft.windowsdesktop.app.runtime.win-x64\8.0.1\runtimes\win-x64\lib\net8.0\Microsoft.VisualBasic.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
