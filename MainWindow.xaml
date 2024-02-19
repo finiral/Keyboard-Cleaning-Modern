@@ -5,12 +5,11 @@
         ResizeMode="NoResize"
         Title="Keyboard-Cleaning" Height="400" Width="500">
     <Grid>
-
         <ui:TitleBar ShowMaximize="False" Title="Keyboard-Cleaning App"></ui:TitleBar>
         <Label Margin="106,97,320,258" >CPU Usage</Label>
         <Label Margin="337,98,0,257" HorizontalAlignment="Left">RAM Left</Label>
-        <Label Margin="340,221,0,134" HorizontalAlignment="Left">4000 MB</Label>
-        <Label Margin="130,220,0,135" HorizontalAlignment="Left">20%</Label>
+        <Label Margin="346,220,0,135" HorizontalAlignment="Left" Name="ram">4000 MB</Label>
+        <Label Margin="130,220,0,135" HorizontalAlignment="Left" Name="cpu">20%</Label>
 
         <ui:ProgressRing Margin="113,132,327,192" Progress="80"></ui:ProgressRing>
         <ui:ProgressRing Margin="335,132,105,192" Progress="80"></ui:ProgressRing>
