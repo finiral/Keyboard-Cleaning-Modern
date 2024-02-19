@@ -96,7 +96,7 @@ public partial class MainWindow : FluentWindow
                 }
                 if (this.FindName("ram") is Label ram && this.FindName("ram_bar") is ProgressRing ram_bar)
                 {
-                    double ram_usage = (double)totalRam - ram_left;
+                    double ram_usage = Math.Round((double)totalRam,1) - ram_left;
                     ram.Content = ram_usage +" GB";
                     ram_bar.Progress=(ram_usage/(double)totalRam)*100;
                 }

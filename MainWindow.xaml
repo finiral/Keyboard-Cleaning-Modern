@@ -9,24 +9,26 @@
         <ui:TitleBar ShowMaximize="False" Title="Keyboard-Cleaning App" Icon="logo_keyboard" ></ui:TitleBar>
         <Label Margin="100,102,326,253" >CPU Usage</Label>
         <Label Margin="323,103,0,252" HorizontalAlignment="Left">RAM Usage</Label>
-        <Label Margin="338,228,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Name="ram">0 MB</Label>
-        <Label Margin="124,225,0,130" HorizontalAlignment="Left" Name="cpu" VerticalAlignment="Center">0%</Label>
+        <Label Margin="340,228,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Name="ram">0 MB</Label>
+        <Label Margin="118,228,0,0" HorizontalAlignment="Left" Name="cpu" VerticalAlignment="Top">0%</Label>
+        <ui:ProgressRing Foreground="Black" Progress="100" Margin="100,131,340,193"></ui:ProgressRing>
         <ui:ProgressRing Margin="100,131,340,193" Progress="0" Name="cpu_bar" RenderTransformOrigin="0.5,0.5">
             <ui:ProgressRing.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
                     <SkewTransform/>
-                    <RotateTransform/>
+                    <RotateTransform Angle="89.98"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </ui:ProgressRing.RenderTransform>
         </ui:ProgressRing>
+        <ui:ProgressRing Foreground="Black" Progress="100" Margin="329,132,111,192"></ui:ProgressRing>
         <ui:ProgressRing Margin="329,132,111,192" Progress="0" Name="ram_bar" RenderTransformOrigin="0.5,0.5">
             <ui:ProgressRing.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
                     <SkewTransform/>
-                    <RotateTransform/>
+                    <RotateTransform Angle="89.888"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </ui:ProgressRing.RenderTransform>
